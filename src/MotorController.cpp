@@ -41,7 +41,7 @@ void MotorController::setup()
   _leftMotorSpeed = 0;
   _rightMotorSpeed = 0;
   _direction = NONE;
-  _baseSpeed = 0;
+  _baseSpeed = 150;
   _speedError = 0;
 }
 
