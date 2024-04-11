@@ -40,31 +40,29 @@ void MotorController::setup()
 
   _leftMotorSpeed = 0;
   _rightMotorSpeed = 0;
-  _direction = STOP;
+  _direction = NONE;
   _baseSpeed = 0;
   _speedError = 0;
 }
 
-void MotorController::driveForward(int speed)
+void MotorController::setDirection(Direction direction)
 {
-  _drive(speed);
+  if (direction == NONE)
+  {
+    _stopLeftWheel();
+    _stopRightWheel();
+  }
+  _direction = direction;
 }
 
-void MotorController::driveBackward(int speed)
+void MotorController::setSpeed(int speed)
 {
-  _drive(-speed);
-}
-
-void MotorController::_drive(int speed)
-{
-  _direction = static_cast<Direction>(constrain(speed, -1, 1));
   _baseSpeed = abs(speed);
 }
 
 void MotorController::stop()
 {
-  _stopLeftWheel();
-  _stopRightWheel();
+  setDirection(NONE);
 }
 
 void MotorController::leftTurn(int degrees, int speed)
@@ -251,7 +249,7 @@ void MotorController::_setSpeedRightWheel(int speed)
   analogWrite(_enB, constrain(abs(speed), 0, 255));
 }
 
-void MotorController::update()
+void MotorController::drive()
 {
   int curSpeedCounterLeft = _speedSensorLeftCount;
   int curSpeedCounterRight = _speedSensorRightCount;

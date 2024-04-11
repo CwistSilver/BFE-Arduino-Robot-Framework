@@ -41,20 +41,32 @@ public:
   MotorController(int motorLeftPin1, int motorLeftPin2, int motorRightPin1, int motorRightPin2, int speedSensorLeftPin, int speedSensorRightPin, int enA, int enB);
 
   /**
+   * Direction of the robot's movement.
+   * FORWARD indicates forward movement, BACKWARD indicates backward movement, and STOP indicates no movement.
+   */
+  enum Direction
+  {
+    FORWARD = 1,   /**< Indicates forward movement. */
+    BACKWARD = -1, /**< Indicates backward movement. */
+    NONE = 0       /**< Indicates no movement. */
+  };
+
+  /**
    * Initializes the motor controller by setting up pin modes and attaching interrupts for the speed sensors.
    */
   void setup();
 
   /**
-   * Commands the robot to drive forward at a specified speed.
-   * @param speed Desired speed value (default = 150).
+   * Sets the direction in which the robot drives.
+   * @param direction Desired direction.
    */
-  void driveForward(int speed = 150);
+  void setDirection(Direction direction);
+
   /**
-   * Commands the robot to drive backward at a specified speed.
-   * @param speed Desired speed value (default = 150).
+   * Sets the speed of the robot.
+   * @param speed Desired speed value. Negative values reverse direction.
    */
-  void driveBackward(int speed = 150);
+  void setSpeed(int speed);
 
   /**
    * Commands the robot to stop all motor activity immediately.
@@ -78,20 +90,9 @@ public:
    * Updates the speed and direction of the motors based on encoder feedback and desired settings.
    * Should be called regularly to maintain accurate control.
    */
-  void update();
+  void drive();
 
 private:
-  /**
-   * Direction of the robot's movement.
-   * FORWARD indicates forward movement, BACKWARD indicates backward movement, and STOP indicates no movement.
-   */
-  enum Direction
-  {
-    FORWARD = 1,   /**< Indicates forward movement. */
-    BACKWARD = -1, /**< Indicates backward movement. */
-    STOP = 0       /**< Indicates no movement. */
-  };
-
   int _maxHoles;                                                        ///< Number of holes in the wheel encoder disk.
   float _maxWheelTurnPerSecond;                                         ///< Maximum speed of the wheel in turns per second.
   int _baseSpeed;                                                       ///< Base speed of the robot.
@@ -103,8 +104,8 @@ private:
   volatile int _speedSensorLeftCount, _speedSensorRightCount;           ///< Speed sensor hole counts.
   int _speedSensorLeftCountPrevious, _speedSensorRightCountPrevious;    ///< Previous speed sensor hole counts.
   int _leftMotorSpeed, _rightMotorSpeed;                                ///< Current motor speeds.
-  unsigned long _previousTime;    
-                                        ///< Previous time for speed calculations.
+  unsigned long _previousTime;
+  ///< Previous time for speed calculations.
   /**
    * Commands the robot to drive in the given direction (forward or backward) determined by the speed.
    * @param speed Desired speed value (default = 150). Negative values reverse direction.
