@@ -5,6 +5,10 @@
 Framework for the BFE Arduino Robots
 
 ## Documentation
+
+### Public Functions
+`arduinoSetup()` - Initializes the other classes and sets the associated pins.
+
 ### Classes
 There are 3 classes that are publicly available:
 - `motorController` - For doing actions with the Arduino's motors
@@ -19,13 +23,13 @@ motorController has the following Functions:
 
 <br/>
 
-- `void driveForward(int speed = 150)` - Commands the robot to drive forward at a specified speed.
-  - *`speed`* - The speed at which to drive forward. **Can be left out, default is 150**
+- `void setDirection(Direction direction)` - Sets the direction in which the robot drives.
+  - *`direction`* - Desired direction. **(Possible values: FORWARD, BACKWARD, NONE)**
 
 <br/>
 
-- `void driveBackward(int speed = 150)` - Commands the robot to drive backward at a specified speed.
-  - *`speed`* - The speed at which to drive backward. **Can be left out, default is 150**
+- `void setSpeed(int speed)` - Sets the speed of the robot.
+  - *`speed`* - Desired speed value.
 
 <br/>
 
@@ -45,7 +49,7 @@ motorController has the following Functions:
 
 <br/>
 
-- `void update()` - Updates the speed and direction of the motors based on encoder feedback and desired settings. **Has to be called regularly to maintain control**
+- `void drive()` - Updates the speed and direction of the motors. **Has to be called regularly to drive**
 
 ### ServoController
 Manages a servo motor's operations, including angle adjustments.

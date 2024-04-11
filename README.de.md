@@ -5,6 +5,10 @@
 Framework für die BFE Arduino Roboter
 
 ## Dokumentation
+
+### Öffentliche Funktionen
+`arduinoSetup()` - Initialisiert die anderen Klassen und setzt die zugehörigen Pins.
+
 ### Klassen
 Es gibt 3 Klassen, die öffentlich zugänglich sind:
 
@@ -21,13 +25,13 @@ motorController hat die folgenden Funktionen:
 
 <br/>
 
-- `void driveForward(int speed = 150)` - Befiehlt dem Roboter, mit einer bestimmten Geschwindigkeit vorwärts zu fahren.
-  - *`speed`* - Die Geschwindigkeit, mit der vorwärts gefahren werden soll. **Kann weggelassen werden, Standard ist 150**
+- `void setDirection(Direction direction)` - Legt die Richtung fest, in die der Roboter fährt.
+  - *`speed`* - Gewünschte Richtung. **(Mögliche Werte: FORWARD, BACKWARD, NONE)**
 
 <br/>
 
-- `void driveBackward(int speed = 150)` - Befiehlt dem Roboter, mit einer bestimmten Geschwindigkeit rückwärts zu fahren.
-  - *`speed`* - Die Geschwindigkeit, mit der rückwärts gefahren werden soll. **Kann weggelassen werden, Standard ist 150**
+- `void driveBackward(int speed = 150)` - Legt die Geschwindigkeit des Roboters fest.
+  - *`speed`* - Gewünschter Geschwindigkeitswert.
 
 <br/>
 
@@ -47,7 +51,7 @@ motorController hat die folgenden Funktionen:
 
 <br/>
 
-`void update()` - Aktualisiert die Geschwindigkeit und Richtung der Motoren basierend auf Encoder-Rückmeldungen und gewünschten Einstellungen. **Muss regelmäßig aufgerufen werden, um die Kontrolle zu behalten**
+`void drive()` - Aktualisiert die Geschwindigkeit und Richtung der Motoren. **Muss regelmäßig aufgerufen werden, um zu fahren**
 
 ### ServoController
 Verwaltet die Operationen eines Servomotors, einschließlich Winkelverstellungen.
