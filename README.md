@@ -1,6 +1,6 @@
 # BFE-Arduino-Robot-Framework
-[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/FlorianNoeverGOB/BFE-Arduino-Robot-Framework/blob/master/README.md)
-[![de](https://img.shields.io/badge/lang-de-green.svg)](https://github.com/FlorianNoeverGOB/BFE-Arduino-Robot-Framework/blob/master/README.de.md)
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/CwistSilver/BFE-Arduino-Robot-Framework/blob/master/README.md)
+[![de](https://img.shields.io/badge/lang-de-green.svg)](https://github.com/CwistSilver/BFE-Arduino-Robot-Framework/blob/master/README.de.md)
 
 Framework for the BFE Arduino Robots
 
