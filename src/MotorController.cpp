@@ -60,7 +60,7 @@ void MotorController::setSpeed(int speed)
   _baseSpeed = abs(speed);
 }
 
-void MotorController::stop()
+void MotorController::_stop()
 {
   setDirection(NONE);
 }
@@ -79,7 +79,7 @@ void MotorController::_turn(int degrees, int speed)
 {
   if (speed == 0)
   {
-    stop();
+    _stop();
     return;
   }
 
@@ -101,7 +101,7 @@ void MotorController::_turn(int degrees, int speed)
     Serial.println(neededHoles);
   }
 
-  stop();
+  _stop();
 
   int leftWheelSpeed = isLeftTurn ? -speed : speed;
   int rightWheelSpeed = isLeftTurn ? speed : -speed;

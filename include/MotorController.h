@@ -69,11 +69,6 @@ public:
   void setSpeed(int speed);
 
   /**
-   * Commands the robot to stop all motor activity immediately.
-   */
-  void stop();
-
-  /**
    * Turns the robot left by a specified number of degrees at a certain speed.
    * @param degrees Angle in degrees to turn.
    * @param speed Speed at which to turn (default = 150).
@@ -111,6 +106,10 @@ private:
    * @param speed Desired speed value (default = 150). Negative values reverse direction.
    */
   void _drive(int speed = 150);
+  /**
+   * Commands the robot to stop all motor activity immediately.
+   */
+  void _stop();
   /**
    * Generic turn function. Positive degrees for right turns, negative for left.
    * @param degrees Angle in degrees to turn. Negative for left, positive for right.
