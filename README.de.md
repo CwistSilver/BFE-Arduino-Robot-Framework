@@ -35,10 +35,6 @@ motorController hat die folgenden Funktionen:
 
 <br/>
 
-- `void stop()` - Befiehlt dem Roboter, alle Motoraktivitäten sofort zu stoppen.
-
-<br/>
-
 - `void leftTurn(int degrees, int speed = 150)` - Dreht den Roboter um eine bestimmte Anzahl von Grad nach links bei einer bestimmten Geschwindigkeit.
   - *`degrees`* - Die Gradzahl, um die nach links gedreht werden soll.
   - *`speed`* - Die Geschwindigkeit, mit der nach links gedreht werden soll. **Kann weggelassen werden, Standard ist 150**
