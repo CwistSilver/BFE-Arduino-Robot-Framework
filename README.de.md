@@ -93,6 +93,7 @@ void setup()
 {
   arduinoSetup();
   motorController.setDirection(motorController.FORWARD);
+  motorController.setSpeed(150);
 }
 
 void loop()
@@ -103,7 +104,7 @@ void loop()
     motorController.drive();
   else
   {
-    motorController.stop();
+    motorController.setDirection(motorController.NONE);
     lookLeftRight();
     motorController.rightTurn(180);
     finished = true;
