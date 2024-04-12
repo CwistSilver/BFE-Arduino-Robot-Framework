@@ -30,7 +30,7 @@ motorController hat die folgenden Funktionen:
 
 <br/>
 
-- `void setSpeed(int speed = 150)` - Legt die Geschwindigkeit des Roboters fest.
+- `void setSpeed(int speed)` - Legt die Geschwindigkeit des Roboters fest.
   - *`speed`* - Gewünschter Geschwindigkeitswert.
 
 <br/>
