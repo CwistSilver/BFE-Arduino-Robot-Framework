@@ -26,7 +26,7 @@ motorController hat die folgenden Funktionen:
 <br/>
 
 - `void setDirection(Direction direction)` - Legt die Richtung fest, in die der Roboter fährt.
-  - *`speed`* - Gewünschte Richtung. **(Mögliche Werte: FORWARD, BACKWARD, NONE)**
+  - *`direction`* - Gewünschte Richtung. **(Mögliche Werte: FORWARD, BACKWARD, NONE)**
 
 <br/>
 
